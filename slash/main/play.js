@@ -11,9 +11,9 @@ module.exports = {
       required: true,
       choices: [
         { name: "Quiz", value: "quiz" },
-        { name: "Unscramble (soon)", value: "unscramble" },
-        { name: "Flags (soon)", value: "flags" },
-        { name: "Fast (soon)", value: "fast" }
+        { name: "Unscramble", value: "unscramble" },
+        { name: "Flags", value: "flags" },
+        { name: "Fast", value: "fast" }
       ]
     },
     {
