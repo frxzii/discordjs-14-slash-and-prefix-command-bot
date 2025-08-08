@@ -60,6 +60,25 @@ client.on("ready", () => {
         }
     }
 
+    // Auto-generate additional slash commands (cmd1..cmd200)
+    const autoGenerateCount = Number(config.autoGenerateSlashCount || 200);
+    for (let i = 1; i <= autoGenerateCount; i++) {
+        const name = `cmd${i}`;
+        if (!client.slashCommands.has(name)) {
+            const command = {
+                name,
+                description: `Auto-generated command #${i}`,
+                options: [],
+                run: async (client, interaction) => {
+                    return interaction.reply({ content: `Executed ${name}` }).catch(() => {});
+                }
+            };
+            client.slashCommands.set(name, command);
+            slashCommandsLoader.push({ name: command.name, description: command.description, options: command.options });
+            console.log(`➤ Slash | ${name}/auto Command Loadded!`)
+        }
+    }
+
 
     const rest = new REST({ version: "10" }).setToken(config.token);
     (async () => {
