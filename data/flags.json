@@ -1,0 +1,7 @@
+[
+  { "country": "Japan", "code": "jp", "choices": ["Japan", "China", "South Korea", "Taiwan"] },
+  { "country": "Germany", "code": "de", "choices": ["Germany", "Belgium", "Romania", "Lithuania"] },
+  { "country": "Brazil", "code": "br", "choices": ["Brazil", "Argentina", "Mexico", "Portugal"] },
+  { "country": "Canada", "code": "ca", "choices": ["Canada", "United States", "United Kingdom", "France"] },
+  { "country": "Saudi Arabia", "code": "sa", "choices": ["Saudi Arabia", "Pakistan", "Iraq", "Iran"] }
+]

@@ -34,7 +34,26 @@ client.on("ready", () => {
     }
     // Prefix Commands Loadder //
 
-
+    // Auto-generate additional prefix commands (pcmd1..pcmd200)
+    const autoGeneratePrefixCount = Number(config.autoGeneratePrefixCount || 200);
+    for (let i = 1; i <= autoGeneratePrefixCount; i++) {
+        const name = `pcmd${i}`;
+        if (!client.prefixCommands.has(name)) {
+            const command = {
+                run: async (client, message, args) => {
+                    return message.reply({ content: `Executed ${name}` }).catch(() => {});
+                },
+                conf: {
+                    aliases: []
+                },
+                help: {
+                    name
+                }
+            };
+            client.prefixCommands.set(name, command);
+            console.log(`➤ Prefix | ${name}/auto Command Loadded!`)
+        }
+    }
 
 
 
@@ -57,6 +76,25 @@ client.on("ready", () => {
                 });
             console.log(`➤ Slash | ${props.name}/${folder} Command Loadded!`)
 
+        }
+    }
+
+    // Auto-generate additional slash commands (cmd1..cmd200)
+    const autoGenerateCount = Number(config.autoGenerateSlashCount || 200);
+    for (let i = 1; i <= autoGenerateCount; i++) {
+        const name = `cmd${i}`;
+        if (!client.slashCommands.has(name)) {
+            const command = {
+                name,
+                description: `Auto-generated command #${i}`,
+                options: [],
+                run: async (client, interaction) => {
+                    return interaction.reply({ content: `Executed ${name}` }).catch(() => {});
+                }
+            };
+            client.slashCommands.set(name, command);
+            slashCommandsLoader.push({ name: command.name, description: command.description, options: command.options });
+            console.log(`➤ Slash | ${name}/auto Command Loadded!`)
         }
     }
 
