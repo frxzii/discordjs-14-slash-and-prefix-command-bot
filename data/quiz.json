@@ -1,0 +1,22 @@
+[
+  {
+    "q": "What is the capital of France?",
+    "choices": ["Paris", "Lyon", "Marseille", "Nice"],
+    "answer": 0
+  },
+  {
+    "q": "2 + 2 * 2 = ?",
+    "choices": ["6", "8", "4", "2"],
+    "answer": 0
+  },
+  {
+    "q": "Which planet is known as the Red Planet?",
+    "choices": ["Earth", "Mars", "Jupiter", "Venus"],
+    "answer": 1
+  },
+  {
+    "q": "Which language runs in a web browser?",
+    "choices": ["Java", "C", "Python", "JavaScript"],
+    "answer": 3
+  }
+]
