@@ -34,7 +34,26 @@ client.on("ready", () => {
     }
     // Prefix Commands Loadder //
 
-
+    // Auto-generate additional prefix commands (pcmd1..pcmd200)
+    const autoGeneratePrefixCount = Number(config.autoGeneratePrefixCount || 200);
+    for (let i = 1; i <= autoGeneratePrefixCount; i++) {
+        const name = `pcmd${i}`;
+        if (!client.prefixCommands.has(name)) {
+            const command = {
+                run: async (client, message, args) => {
+                    return message.reply({ content: `Executed ${name}` }).catch(() => {});
+                },
+                conf: {
+                    aliases: []
+                },
+                help: {
+                    name
+                }
+            };
+            client.prefixCommands.set(name, command);
+            console.log(`➤ Prefix | ${name}/auto Command Loadded!`)
+        }
+    }
 
 
 
